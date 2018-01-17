@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+    <header>
+      <h1>Users</h1>
+      <nav>
+        <ul>
+          <li><a href="/">Home</a></li>
+          <li><a href="/users/new">Create an account</a></li>
+        </ul>
+      </nav>
+    </header>
+    <main>
+      <h2>List of Users</h2>
+      <ul>
+        <% for(let i = 0; i < users.length; i++){ %>
+        <li><a href="/users/<%=users[i]._id%>"><%=users[i].name%></a><br/>
+        <%=users[i].password%><br/>
+        <%=users[i].hobby%>
+        </li>
+        <% } %>
+      </ul>
+    </main>
+  </body>
+</html>

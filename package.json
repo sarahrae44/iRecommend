@@ -4,7 +4,11 @@
   "description": "Based on an article: https://www.nytimes.com/2017/12/01/jobs/please-dont-make-me-ask-for-another-recommendation.html",
   "main": "server.js",
   "dependencies": {
-    "express": "^4.16.2"
+    "body-parser": "^1.18.2",
+    "ejs": "^2.5.7",
+    "express": "^4.16.2",
+    "method-override": "^2.3.10",
+    "mongoose": "^4.13.9"
   },
   "devDependencies": {},
   "scripts": {
