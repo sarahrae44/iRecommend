@@ -3,11 +3,15 @@ const router = express.Router();
 const User = require('../models/users.js');
 
 router.get('/', (req, res) => {
-  User.find({}, (err, foundUsers) => {
-    res.render('users/index.ejs', {
-      users: foundUsers
-    });
-  })
+  if(req.session.logged){
+    User.find({}, (err, foundUsers) => {
+      res.render('users/index.ejs', {
+        users: foundUsers
+      });
+    })
+  } else {
+    res.redirect('/sessions/login')
+  }
 });
 
 router.get('/new', (req, res) => {
@@ -15,10 +19,56 @@ router.get('/new', (req, res) => {
 });
 
 router.post('/', (req, res) => {
+  req.body.password = bcrypt.hashSync(req.body.password, bcrypt.genSaltSync(10));
   User.create(req.body, (err, createdUser) => {
-    res.redirect('/users');
+    res.redirect('/');
   });
 });
+
+// router.post('/register', (req, res) => {
+//   const password = req.body.password;
+//   const passwordHash = bcrypt.hashSync(password, bcrypt.genSaltSync(10));
+//   const userDbEntry = {};
+//   userDbEntry.username = req.body.username;
+//   userDbEntry.password = passwordHash;
+//   User.create(userDbEntry, (err, user) => {
+//     console.log(user);
+//     req.session.username = user.username;
+//     req.session.logged = true;
+//     res.redirect('/users')
+//   });
+// })
+//
+// router.post('/login', (req, res) => {
+//   User.findOne({username: req.body.username}, (err, user) => {
+//     if(user){
+//       if(bcrypt.compareSync(req.body.password, user.password)){
+//         req.session.message = '';
+//         req.session.username = req.body.username;
+//         req.session.logged = true;
+//         console.log(req.session, req.body);
+//         res.redirect('/users');
+//       } else {
+//         console.log('else in bcrypt compare');
+//         req.session.message = "Username or password are incorrect";
+//         res.redirect('/sessions/login')
+//       }
+//     } else {
+//       req.session.message = "username or password are incorrect";
+//       res.redirect('/sessions/login')
+//     }
+//   });
+// });
+//
+// router.get('/logout', (req, res) => {
+//   req.session.destroy((err) => {
+//     if(err){
+//
+//     } else {
+//       res.redirect('/')
+//     }
+//   });
+// });
 
 router.get('/:id', (req, res) => {
   User.findById(req.params.id, (err, foundUser) => {

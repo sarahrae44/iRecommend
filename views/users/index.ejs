@@ -18,7 +18,7 @@
       <h2>List of Users</h2>
       <ul>
         <% for(let i = 0; i < users.length; i++){ %>
-        <li><a href="/users/<%=users[i]._id%>"><%=users[i].name%></a><br/>
+        <li><a href="/users/<%=users[i]._id%>"><%=users[i].username%></a><br/>
         <%=users[i].password%><br/>
         <%=users[i].hobby%>
         </li>
