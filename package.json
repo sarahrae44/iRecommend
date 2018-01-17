@@ -1,0 +1,24 @@
+{
+  "name": "irecommend",
+  "version": "1.0.0",
+  "description": "Based on an article: https://www.nytimes.com/2017/12/01/jobs/please-dont-make-me-ask-for-another-recommendation.html",
+  "main": "server.js",
+  "dependencies": {
+    "express": "^4.16.2"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sarahrae44/iRecommend.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/sarahrae44/iRecommend/issues"
+  },
+  "homepage": "https://github.com/sarahrae44/iRecommend#readme"
+}
