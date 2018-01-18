@@ -17,6 +17,17 @@
     <main>
       <h2>Recommendation Attributes:</h2>
       <form action="/recs/<%=rec._id%>?_method=PUT" method="POST">
+        <select name="userId">
+          <% for(let i = 0; i < users.length; i++) { %>
+          <option value = "<%=users[i]._id%>"
+            <% if(users[i]._id.toString() === recUser._id.toString()){ %>
+            selected
+            <% } %>
+            >
+          <%=users[i].username%>
+        </option>
+        <% } %>
+      </select><br/>
         <input type="text" name="title" value="<%=rec.title%>"/><br/>
         <textarea name="body"><%=rec.body%></textarea><br/>
         <input type="submit" value="Update Recommendation"/>

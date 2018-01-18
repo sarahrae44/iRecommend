@@ -22,6 +22,13 @@
         </ul>
       </section>
       <section>
+        <h2>Recommendations Written About This User:</h2>
+        <ul><% for(let i = 0; i < user.recs.length; i++) { %>
+          <li><a href="/recs/<%=user.recs[i]._id%>"><%=user.recs[i].title%></a></li>
+          <% } %>
+        </ul>
+      </section>
+      <section>
         <form action="/users/<%=user._id%>?_method=DELETE" method="POST">
           <input type="submit" value="Delete User"/>
         </form>
