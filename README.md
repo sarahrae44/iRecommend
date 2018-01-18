@@ -13,3 +13,5 @@ There will be different categories to choose from (web developer, web designer, 
 Time:
 
 1/17 - code: 3.75
+
+1/18 - code: 5
