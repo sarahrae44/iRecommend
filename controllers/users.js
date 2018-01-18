@@ -1,13 +1,20 @@
 const express = require('express');
-const router = express.Router();
 const User = require('../models/users.js');
 const Rec = require('../models/recs.js');
+const router = express.Router();
+// const bcrypt = require('bcrypt');
 
 router.get('/', (req, res) => {
   User.find({}, (err, foundUsers) => {
     res.render('users/index.ejs', {
       users: foundUsers
     });
+  })
+});
+
+router.post('/', (req, res) => {
+  User.create(req.body, (err, createdUser) => {
+    res.redirect('/users');
   });
 });
 
@@ -15,11 +22,7 @@ router.get('/new', (req, res) => {
   res.render('users/new.ejs');
 });
 //
-router.post('/', (req, res) => {
-  User.create(req.body, (err, createdUser) => {
-    res.redirect('/users');
-  });
-});
+
 
 // router.post('/register', (req, res) => {
 //   const password = req.body.password;
@@ -35,26 +38,7 @@ router.post('/', (req, res) => {
 //   });
 // })
 //
-// router.post('/login', (req, res) => {
-//   User.findOne({username: req.body.username}, (err, user) => {
-//     if(user){
-//       if(bcrypt.compareSync(req.body.password, user.password)){
-//         req.session.message = '';
-//         req.session.username = req.body.username;
-//         req.session.logged = true;
-//         console.log(req.session, req.body);
-//         res.redirect('/users');
-//       } else {
-//         console.log('else in bcrypt compare');
-//         req.session.message = "Username or password are incorrect";
-//         res.redirect('/sessions/login')
-//       }
-//     } else {
-//       req.session.message = "username or password are incorrect";
-//       res.redirect('/sessions/login')
-//     }
-//   });
-// });
+
 //
 // router.get('/logout', (req, res) => {
 //   req.session.destroy((err) => {

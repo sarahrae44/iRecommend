@@ -3,16 +3,16 @@ const router = express.Router();
 const User = require('../models/users.js');
 const bcrypt = require('bcrypt');
 
-router.get('/login', (req, res) => {
-  res.render('users/login.ejs', { message:
+router.get('/login', (req, res, next) => {
+  res.render('sessions/login.ejs', { message:
   req.session.message || ''})
 })
 
-router.get('/register', (req, res) => {
-  res.render('users/register.ejs', {})
+router.get('/register', (req, res, next) => {
+  res.render('sessions/register.ejs', {})
 })
 
-router.post('/login', (req, res) => {
+router.post('/login', (req, res, next) => {
   User.findOne({username: req.body.username}, (err, user) => {
     if(user){
       if(bcrypt.compareSync(req.body.password, user.password)){
@@ -33,7 +33,7 @@ router.post('/login', (req, res) => {
   });
 });
 
-router.post('/register', (req, res) => {
+router.post('/register', (req, res, next) => {
   const password = req.body.password;
   const passwordHash = bcrypt.hashSync(password, bcrypt.genSaltSync(10));
   const userDbEntry = {};
@@ -46,27 +46,32 @@ router.post('/register', (req, res) => {
     res.redirect('/users')
   });
 })
-
+//
 router.get('/logout', (req, res) => {
   req.session.destroy((err) => {
       res.redirect('/')
   });
 });
-
-router.get('/new', (req, res) => {
-  res.render('sessions/new.ejs');
-});
-
-router.post('/', (req, res) => {
-  User.findOne({ username: req.body.username }, (err, foundUser) => {
-    if(bcrypt.compareSync(req.body.password, foundUser.password)) {
-      req.session.currentUser = foundUser;
-      res.redirect('/');
-    } else {
-      res.send('wrong password');
-    }
-  });
-});
-
+//
+// router.get('/new', (req, res) => {
+//   res.render('sessions/new.ejs');
+// });
+// //
+// router.post('/', (req, res) => {
+//   User.findOne({ username: req.body.username }, (err, foundUser) => {
+//     if(bcrypt.compareSync(req.body.password, foundUser.password) ) {
+//       req.session.currentuser = foundUser;
+//       res.redirect('/');
+//     } else {
+//       res.send('wrong password');
+//     }
+//   });
+// });
+//
+// router.delete('/', (req, res) => {
+//   req.session.destroy(() => {
+//     res.redirect('/');
+//   });
+// });
 
 module.exports = router;

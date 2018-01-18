@@ -29,12 +29,12 @@
         </ul>
       </section>
       <section>
+        <a href="/users/<%=user._id%>/edit">Edit</a>
+      </section>
+      <section>
         <form action="/users/<%=user._id%>?_method=DELETE" method="POST">
           <input type="submit" value="Delete User"/>
         </form>
-      </section>
-      <section>
-        <a href="/users/<%=user._id%>/edit">Edit</a>
       </section>
     </main>
   </body>

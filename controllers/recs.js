@@ -4,11 +4,15 @@ const Rec = require('../models/recs.js');
 const User = require('../models/users.js');
 
 router.get('/', (req, res) => {
-  Rec.find({}, (err, foundRecs) => {
-    res.render('recs/index.ejs', {
-      recs: foundRecs
+  if(req.session.logged) {
+    Rec.find({}, (err, foundRecs) => {
+      res.render('recs/index.ejs', {
+        recs: foundRecs
+      });
     });
-  });
+  } else {
+    res.redirect('/sessions/login')
+  }
 });
 
 router.get('/new', (req, res) => {
@@ -71,7 +75,7 @@ router.put('/:id', (req, res) => {
     User.findOne({ 'recs._id': req.params.id }, (err, foundUser) => {
       if(foundUser._id.toString() !== req.body.userId) {
         foundUser.recs.id(req.params.id).remove();
-        foundUser.save((err, saveFoundUser) => {
+        foundUser.save((err, savedFoundUser) => {
           User.findById(req.body.userId, (err, newUser) => {
             newUser.recs.push(updatedRec);
             newUser.save((err, savedNewUser) => {
