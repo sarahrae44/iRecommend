@@ -6,16 +6,6 @@
   </head>
   <body>
     <header>
-      <h1><% if(currentUser) { %>
-          Welcome <%=currentUser.username%>!
-        <% } else { %>
-          Welcome!
-        <% } %>
-      </h1>
-      <% if(currentUser) { %>
-        <main>Welcome to the <a href="/app">party</a>
-        </main>
-      <% } %>
       <h1>iRecommend</h1>
       <h4>The easy way to give and receive recommendations</h4>
       <nav>
@@ -24,15 +14,9 @@
           <li>I'd like to request a recommendation</li>
           <li>See my recommendations</li>
           <li><a href="/users">Users</a></li>
+          <li><a href="/recs">Recommendations</a></li>
         </ul>
       </nav>
-      <% if(currentUser) { %>
-        <li>
-        <form action="/sessions?_method=DELETE" method="POST">
-        <input type="submit" value="Log out"/>
-        </form>
-        </li>
-      <% } %>
     </header>
   </body>
 </html>

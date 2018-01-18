@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+    <header>
+      <h1>Edit <%=rec.title%></h1>
+      <nav>
+        <ul>
+          <li><a href="/">Home</a></li>
+          <li><a href="/recs">Recommendations Index</a></li>
+        </ul>
+      </nav>
+    </header>
+    <main>
+      <h2>Recommendation Attributes:</h2>
+      <form action="/recs/<%=rec._id%>?_method=PUT" method="POST">
+        <input type="text" name="title" value="<%=rec.title%>"/><br/>
+        <textarea name="body"><%=rec.body%></textarea><br/>
+        <input type="submit" value="Update Recommendation"/>
+      </form>
+    </main>
+  </body>
+</html>

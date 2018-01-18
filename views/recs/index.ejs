@@ -6,20 +6,20 @@
   </head>
   <body>
     <header>
-      <h1>Users</h1>
+      <h1>Recommendations</h1>
       <nav>
         <ul>
           <li><a href="/">Home</a></li>
-          <li><a href="/users/new">Create an account</a></li>
+          <li><a href="/recs/new">Add a new recommendation</a></li>
         </ul>
       </nav>
     </header>
     <main>
-      <h2>List of Users</h2>
+      <h2>List of Recommendations</h2>
       <ul>
-        <% for(let i = 0; i < users.length; i++) { %>
+        <% for(let i = 0; i < recs.length; i++) { %>
         <li>
-          <a href="/users/<%=users[i]._id%>"><%=users[i].username%></a>
+          <a href="/recs/<%=recs[i]._id%>"><%=recs[i].title%></a>
         </li>
         <% } %>
       </ul>
