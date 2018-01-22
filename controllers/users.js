@@ -5,11 +5,15 @@ const router = express.Router();
 // const bcrypt = require('bcrypt');
 
 router.get('/', (req, res) => {
-  User.find({}, (err, foundUsers) => {
-    res.render('users/index.ejs', {
-      users: foundUsers
+  if(req.session.logged) {
+    User.find({}, (err, foundUsers) => {
+      res.render('users/index.ejs', {
+        users: foundUsers
+      });
     });
-  })
+  } else {
+    res.redirect('/sessions/login')
+  }
 });
 
 router.post('/', (req, res) => {
