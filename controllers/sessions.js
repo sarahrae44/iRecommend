@@ -68,10 +68,10 @@ router.get('/logout', (req, res) => {
 //   });
 // });
 //
-// router.delete('/', (req, res) => {
-//   req.session.destroy(() => {
-//     res.redirect('/');
-//   });
-// });
+router.delete('/', (req, res) => {
+  req.session.destroy(() => {
+    res.redirect('/');
+  });
+});
 
 module.exports = router;

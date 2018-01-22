@@ -5,10 +5,12 @@ const router = express.Router();
 // const bcrypt = require('bcrypt');
 
 router.get('/', (req, res) => {
+  console.log('get path');
   if(req.session.logged) {
     User.find({}, (err, foundUsers) => {
+      console.log(foundUsers);
       res.render('users/index.ejs', {
-        users: foundUsers
+        users: foundUsers,
       });
     });
   } else {
@@ -16,16 +18,29 @@ router.get('/', (req, res) => {
   }
 });
 
+// router.post('/', (req, res) => {
+//   User.findOne({ username: req.body.username }, (err, foundUser) => {
+//     if(bcrypt.compareSync(req.body.password, foundUser.password)) {
+//       req.session.currentuser = foundUser;
+//       console.log('this is it:' + req.session.currentuser);
+//       res.redirect('/');
+//     } else {
+//       res.send('wrong password');
+//     }
+//   });
+// });
+
 router.post('/', (req, res) => {
   User.create(req.body, (err, createdUser) => {
+    // console.log(req.session, req.body);
     res.redirect('/users');
   });
 });
-
-router.get('/new', (req, res) => {
-  res.render('users/new.ejs');
-});
 //
+// router.get('/new', (req, res) => {
+//   res.render('users/new.ejs');
+// });
+
 
 
 // router.post('/register', (req, res) => {

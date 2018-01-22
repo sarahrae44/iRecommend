@@ -6,6 +6,16 @@
   </head>
   <body>
     <header>
+
+      <h1>
+      <% if(currentUser) { %>
+          Welcome <%=currentUser.username%>!
+      <% } else { %>
+          Welcome!
+      <% } %>
+      </h1>
+
+
       <h1>iRecommend</h1>
       <h4>The easy way to give and receive recommendations</h4>
       <nav>
@@ -22,9 +32,9 @@
     </header>
     <% if(currentUser) { %>
     <li>
-    <form action="/sessions?_method=DELETE" method="POST">
-      <input type="submit" value="Log out"/>
-    </form>
+      <form action="/sessions?_method=DELETE" method="POST">
+        <input type="submit" value="Log out"/>
+      </form>
     </li>
     <% } %>
     <% if(currentUser) { %>
