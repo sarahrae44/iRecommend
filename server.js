@@ -36,6 +36,8 @@ app.get('/app', (req, res) => {
   }
 });
 
+app.use(express.static('public'));
+
 const mongoUri = process.env.MONGODB_URI || 'mongodb://localhost:27017/irecommend'
 mongoose.connect(mongoUri);
 

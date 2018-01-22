@@ -5,10 +5,8 @@ const router = express.Router();
 // const bcrypt = require('bcrypt');
 
 router.get('/', (req, res) => {
-  console.log('get path');
   if(req.session.logged) {
     User.find({}, (err, foundUsers) => {
-      console.log(foundUsers);
       res.render('users/index.ejs', {
         users: foundUsers,
       });
