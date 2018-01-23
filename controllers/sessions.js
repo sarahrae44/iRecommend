@@ -19,8 +19,9 @@ router.post('/login', (req, res, next) => {
         req.session.message = '';
         req.session.username = req.body.username;
         req.session.logged = true;
-        console.log(req.session, req.body);
-        res.redirect('/');
+        console.log(req.session);
+        // res.redirect('/');
+        res.render('./users/account.ejs')
         // res.render('users/show.ejs');
       } else {
         console.log('else in bcrypt compare');

@@ -7,16 +7,6 @@
   </head>
   <body>
     <header>
-
-      <h1>
-      <% if(currentUser) { %>
-          Welcome <%=currentUser.username%>!
-      <% } else { %>
-          Welcome!
-      <% } %>
-      </h1>
-
-
       <h1>iRecommend</h1>
       <div><h4>The easy way to give and receive recommendations</h4></div>
       <nav>
@@ -28,7 +18,7 @@
           <li><a href="/recs">Recommendations</a></li>
           <li><a href="/sessions/login">Login</a></li>
           <li><a href="/sessions/register">Register</a></li>
-          <li><a href="/sessions/logout">Logout</a></li>
+          <%# <li><a href="/sessions/logout">Logout</a></li>%>
         </ul>
       </nav>
     </header>

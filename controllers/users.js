@@ -31,6 +31,7 @@ router.get('/', (req, res) => {
 router.post('/', (req, res) => {
   User.create(req.body, (err, createdUser) => {
     // console.log(req.session, req.body);
+
     res.redirect('/users');
   });
 });
