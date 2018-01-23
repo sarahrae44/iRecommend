@@ -68,6 +68,18 @@ router.post('/', (req, res) => {
 //   });
 // });
 
+router.get('/account', (req, res) => {
+  if(req.session.logged) {
+    User.findById(req.params.id, (err, foundUser) => {
+      res.render('users/account.ejs', {
+        user: foundUser
+      });
+    })
+  } else {
+    res.redirect('/sessions/login')
+  }
+});
+
 router.get('/:id', (req, res) => {
   User.findById(req.params.id, (err, foundUser) => {
     res.render('users/show.ejs', {

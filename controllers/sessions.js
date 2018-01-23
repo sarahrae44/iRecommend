@@ -22,7 +22,7 @@ router.post('/login', (req, res, next) => {
         console.log(req.session);
         // res.redirect('/');
         res.render('./users/account.ejs')
-        // res.render('users/show.ejs');
+        // res.render('./users/show.ejs');
       } else {
         console.log('else in bcrypt compare');
         req.session.message = "Username or password are incorrect";
