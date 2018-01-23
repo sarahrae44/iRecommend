@@ -1,3 +1,4 @@
+@import url("https://fonts.googleapis.com/css?family=Open+Sans");
 button, [type='button'], [type='reset'], [type='submit'] {
   appearance: none;
   background-color: #1565c0;
@@ -211,7 +212,7 @@ hr {
   font-family: 'Speck';
   src: url("../assets/fonts/Speck-Display.otf") format("truetype"); }
 body {
-  font-family: "Afta-Sans";
+  font-family: "Open Sans", sans-serif;
   background-color: gainsboro;
   color: #515358; }
 

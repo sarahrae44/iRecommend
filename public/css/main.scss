@@ -11,7 +11,7 @@ $sg-red : #F1534E;
 $featured-content-width: 40%;
 
 body {
-  font-family: "Afta-Sans";
+  font-family: $open-sans;
   background-color: $sg-grey;
   color: $sg-black;
 }
