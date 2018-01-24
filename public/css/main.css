@@ -1,4 +1,5 @@
 @import url("https://fonts.googleapis.com/css?family=Open+Sans");
+@import url("https://fonts.googleapis.com/css?family=Nunito:400,700|Open+Sans");
 button, [type='button'], [type='reset'], [type='submit'] {
   appearance: none;
   background-color: #1565c0;
@@ -202,38 +203,37 @@ hr {
   border-top: 0;
   margin: 1.5em 0; }
 
-@font-face {
-  font-family: "Afta-Sans";
-  src: url("../assets/fonts/afta-sans/AftaSansThin-Regular.otf") format("truetype"); }
-@font-face {
-  font-family: "Chunk";
-  src: url("../assets/fonts/ChunkFive/Chunkfive.otf") format("truetype"); }
-@font-face {
-  font-family: 'Speck';
-  src: url("../assets/fonts/Speck-Display.otf") format("truetype"); }
 body {
   font-family: "Open Sans", sans-serif;
-  background-color: gainsboro;
-  color: #515358; }
+  background-color: lightblue; }
 
-h1 {
-  font-family: "Speck";
-  text-align: center; }
+.headerImg {
+  background-image: url("./assets/images/headerImg.png"); }
 
-.featured {
-  display: flex;
-  width: 98%;
-  margin: auto;
-  justify-content: space-around;
-  background-color: #909090; }
-  .featured div {
-    width: 40%; }
+.titleh1 {
+  font-family: "Nunito", sans-serif;
+  color: #FFFFFF;
+  font-size: 48px;
+  margin-bottom: -10px; }
 
-.featured-content {
-  border: 1px solid rgba(200, 200, 200, 0.5);
-  box-shadow: 0 0 8px silver;
-  background-color: white;
+.subtitle {
+  font-family: "Nunito", sans-serif;
+  color: navy;
+  font-size: 16px; }
+
+nav {
+  list-style: none; }
+
+nav ul li {
+  display: inline-block;
+  width: 180px;
+  padding: 20px 0;
+  background-color: navy;
   text-align: center;
-  padding: .5em; }
+  font-size: 16px; }
+
+nav ul li a {
+  text-decoration: none;
+  color: #FFFFFF; }
 
 /*# sourceMappingURL=main.css.map */
