@@ -5,17 +5,19 @@
 <br/>
 <br/>
 <form action="/sessions/login" method="POST">
-   Username: <input type="text" name="username" value=""><br/>
-   Password: <input type="password" name="password" value=""><br/>
+   Username: <input type="text" name="username" value="" required><br/>
+   Password: <input type="password" name="password" value="" required><br/>
    <button>Login</button><br/>
    <br/>
    or <br/>
-   <br/>
-   <button><a href="/sessions/register">Register for an account</a></button>
+</form>
+<form>
+  <input type="button" value="Register for an account" onclick="window.location.href='/sessions/register'"/>
 </form>
 
 <% if(message) { %>
   <%= message %>
 <% } %>
-
-<button><a href="/">Home</a></button>
+<form>
+  <input type="button" value="Home" onclick="window.location.href='/'"/>
+</form>

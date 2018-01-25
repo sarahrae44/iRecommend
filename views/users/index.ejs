@@ -9,19 +9,19 @@
     <header>
       <h1>Users</h1>
       <nav>
-        <ul>
-          <li><a href="/">Home</a></li>
-          <li><a href="/sessions/register">Create an account</a></li>
-          <li><a href="/recs">Recommendations</a></li>
-        </ul>
+        <form>
+          <input type="button" value="Home" onclick="window.location.href='/'"/>
+          <input type="button" value="Create an account" onclick="window.location.href='/sessions/register'"/>
+          <input type="button" value="Recommendations" onclick="window.location.href='/recs'"/>
+        </form>
       </nav>
     </header>
     <main>
-      <h2>List of Users</h2>
       <ul>
         <% for(let i = 0; i < users.length; i++) { %>
         <li>
           <a href="/users/<%=users[i]._id%>"><%=users[i].username%></a>
+          <%=users[i].recs%>
         </li>
         <% } %>
       </ul>

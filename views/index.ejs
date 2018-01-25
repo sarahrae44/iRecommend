@@ -12,18 +12,18 @@
         <h4 class="subtitle">The easy way to give and receive recommendations</h4>
       </div>
       <nav>
-        <ul>
           <%# <li>I'd like to make a recommendation</li>
           <li>I'd like to request a recommendation</li>
           <li>See my recommendations</li>%>
-          <li><a href="/sessions/login">Login</a></li>
-          <li><a href="/sessions/register">Register</a></li>
-          <li><a href="/users/account">My Account</a></li>
-          <li><a href="/users">Users</a></li>
-          <li><a href="/recs">Recommendations</a></li>
+          <form>
+            <input type="button" value="Login" onclick="window.location.href='/sessions/login'"/>
+            <input type="button" value="Register" onclick="window.location.href='/sessions/register'"/>
+            <input type="button" value="My Account" onclick="window.location.href='/users/account'"/>
+            <input type="button" value="Users" onclick="window.location.href='/users'"/>
+            <input type="button" value="Recommendations" onclick="window.location.href='/recs'"/>
+          </form>
 
           <%# <li><a href="/sessions/logout">Logout</a></li>%>
-        </ul>
       </nav>
     </header>
     <% if(currentUser) { %>
