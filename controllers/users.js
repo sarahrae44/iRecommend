@@ -70,11 +70,7 @@ router.post('/', (req, res) => {
 
 router.get('/account', (req, res) => {
   if(req.session.logged) {
-    User.findById(req.params.id, (err, foundUser) => {
-      res.render('users/account.ejs', {
-        user: foundUser
-      });
-    })
+    res.render('users/account.ejs')
   } else {
     res.redirect('/sessions/login')
   }

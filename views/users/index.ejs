@@ -20,8 +20,8 @@
       <ul>
         <% for(let i = 0; i < users.length; i++) { %>
         <li>
-          <a href="/users/<%=users[i]._id%>"><%=users[i].username%></a>
-          <%=users[i].recs%>
+          <b><a href="/users/<%=users[i]._id%>"><%=users[i].username%></a></b>
+            <%=users[i].recs%>
         </li>
         <% } %>
       </ul>
